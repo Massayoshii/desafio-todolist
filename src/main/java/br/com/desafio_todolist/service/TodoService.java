@@ -30,4 +30,9 @@ public class TodoService {
         todoRepository.save(todo);
         return list();
     }
+
+    public List <Todo> delete(Long id){
+        todoRepository.deleteById(id);
+        return list();
+    }
 }
