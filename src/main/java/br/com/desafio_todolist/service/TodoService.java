@@ -2,6 +2,7 @@ package br.com.desafio_todolist.service;
 
 import br.com.desafio_todolist.entity.Todo;
 import br.com.desafio_todolist.repository.TodoRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,5 +17,11 @@ public class TodoService {
 
     public List <Todo> create(Todo todo){
         todoRepository.save(todo);
+    }
+
+    public List <Todo> list(){
+        Sort sort = Sort.by("prioridade").descending().and
+                (Sort.by("nome")).ascending();
+        return todoRepository.findAll(sort);
     }
 }
