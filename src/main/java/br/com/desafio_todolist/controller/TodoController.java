@@ -20,5 +20,17 @@ public class TodoController {
         return todoService.create(todo);
     }
 
+    List<Todo> list (){
+        return todoService.list();
+    }
+
+    List<Todo> update(Todo todo) {
+        return todoService.update(todo);
+    }
+
+    List<Todo> delete(Long id){
+        return todoService.delete(id);
+    }
+
 
 }
